@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EarnPaisa</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-container">
+            <div class="loading-animation"></div>
+            <p>Loading EarnPaisa...</p>
+        </div>
+    </div>
+
+    <!-- Onboarding Screen -->
+    <div id="onboarding-screen" class="hidden">
+        <div class="onboarding-container glass-panel">
+            <h1>Welcome to EarnPaisa!</h1>
+            <p>Tap the hamster to earn paisa and grow your wealth!</p>
+            <button id="start-button" class="primary-button">Start Earning</button>
+        </div>
+    </div>
+
+    <!-- Main Game Screen -->
+    <div id="game-container" class="hidden">
+        <header class="game-header glass-panel">
+            <div class="resource-display">
+                <div class="coins-container">
+                    <span id="coins-display">0</span> paisa
+                </div>
+                <div class="level-container">
+                    Level: <span id="level-display">1</span>
+                </div>
+            </div>
+            <div class="header-controls">
+                <button id="sound-toggle" class="icon-button sound-on" aria-label="Toggle sound"></button>
+                <button id="theme-toggle" class="icon-button light-mode" aria-label="Toggle theme"></button>
+                <button id="menu-button" class="icon-button" aria-label="Menu"></button>
+            </div>
+        </header>
+        <main class="game-area">
+            <div class="hamster-container">
+                <div id="hamster" class="hamster"></div>
+                <div id="click-feedback" class="click-feedback hidden">+<span id="click-value">1</span></div>
+            </div>
+            <div class="auto-generation glass-panel hidden" id="auto-generation">
+                <span id="auto-rate">0</span> paisa per second
+            </div>
+        </main>
+        <div id="upgrade-panel" class="upgrade-panel glass-panel">
+            <h2>Upgrades</h2>
+            <div class="upgrades-container">
+                <div class="upgrade-item" id="click-power-upgrade">
+                    <div class="upgrade-info">
+                        <h3>Tap Power</h3>
+                        <p>Current: <span id="click-power-level">1</span></p>
+                        <p>Cost: <span id="click-power-cost">10</span> paisa</p>
+                    </div>
+                    <button class="upgrade-button" id="buy-click-power">Upgrade</button>
+                </div>
+                <div class="upgrade-item" id="auto-click-upgrade">
+                    <div class="upgrade-info">
+                        <h3>Auto Earner</h3>
+                        <p>Current: <span id="auto-click-level">0</span></p>
+                        <p>Cost: <span id="auto-click-cost">50</span> paisa</p>
+                    </div>
+                    <button class="upgrade-button" id="buy-auto-click">Upgrade</button>
+                </div>
+            </div>
+        </div>
+        <div id="settings-menu" class="settings-menu glass-panel hidden">
+            <h2>Settings</h2>
+            <div class="settings-options">
+                <div class="setting-item">
+                    <label for="music-volume">Music Volume</label>
+                    <input type="range" id="music-volume" min="0" max="100" value="50">
+                </div>
+                <div class="setting-item">
+                    <label for="sfx-volume">SFX Volume</label>
+                    <input type="range" id="sfx-volume" min="0" max="100" value="50">
+                </div>
+                <div class="setting-item">
+                    <button id="reset-progress" class="danger-button">Reset Progress</button>
+                </div>
+            </div>
+            <button id="close-settings" class="secondary-button">Close</button>
+        </div>
+    </div>
+
+    <!-- Audio Assets -->
+    <audio id="background-music" loop preload="auto" src="assets/audio/background-music.mp3"></audio>
+    <audio id="click-sound" preload="auto" src="assets/audio/click.mp3"></audio>
+    <audio id="upgrade-sound" preload="auto" src="assets/audio/upgrade.mp3"></audio>
+    <audio id="coin-sound" preload="auto" src="assets/audio/coin.mp3"></audio>
+
+    <!-- JavaScript Files -->
+    <script src="js/lottie.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/pwa.js"></script>
+</body>
+</html>
